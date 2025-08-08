@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Personal website of Your Name: projects, writing, and contact info." />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:title" content="Your Name — Portfolio" />
+  <meta property="og:description" content="Projects, writing, and contact info." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Your+Name" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🜚</text></svg>">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #5b5b5b;
+      --card: #f5f5f7;
+      --brand: #4f46e5;
+      --ring: rgba(79,70,229,.35);
+      --border: #e6e6e6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root{
+        --bg: #0b0c0f;
+        --text: #eceff4;
+        --muted: #a1a1aa;
+        --card: #151821;
+        --brand: #8b8cfb;
+        --ring: rgba(139,140,251,.3);
+        --border: #272a35;
+      }
+    }
+    [data-theme="light"]{ --bg:#ffffff; --text:#111; --muted:#5b5b5b; --card:#f5f5f7; --brand:#4f46e5; --ring:rgba(79,70,229,.35); --border:#e6e6e6;}
+    [data-theme="dark"]{ --bg:#0b0c0f; --text:#eceff4; --muted:#a1a1aa; --card:#151821; --brand:#8b8cfb; --ring:rgba(139,140,251,.3); --border:#272a35;}
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:980px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:color-mix(in oklab, var(--bg) 92%, transparent);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border);z-index:20}
+    nav{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 12px;border-radius:10px}
+    .btn:hover{box-shadow:0 0 0 3px var(--ring)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:36px 0}
+    .tag{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+    h1{font-size:44px;line-height:1.1;margin:6px 0 12px}
+    p{margin:0 0 12px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:760px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+    section{padding:28px 0}
+    footer{padding:36px 0;border-top:1px solid var(--border);color:var(--muted)}
+    .proj-title{font-weight:600;margin:0 0 4px}
+    .muted{color:var(--muted)}
+    .avatar{width:140px;height:140px;border-radius:16px;object-fit:cover;border:1px solid var(--border);background:var(--card)}
+    .kpis{display:flex;gap:18px;flex-wrap:wrap}
+    .kpis .card{min-width:160px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Anchor offsets for sticky header */
+    :target{scroll-margin-top:80px}
+    /* Simple fade-in */
+    [data-animate]{opacity:0;transform:translateY(8px);animation:fade .7s ease forwards}
+    [data-animate][data-delay="1"]{animation-delay:.08s}
+    [data-animate][data-delay="2"]{animation-delay:.16s}
+    @keyframes fade{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <a href="#" class="btn" style="background:transparent;border:none;padding:6px 0">
+          <strong>Your Name</strong>
+        </a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#writing">Writing</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <button id="themeToggle" class="btn" type="button" aria-label="Toggle theme">🌓 Theme</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div data-animate>
+        <span class="tag">Hello!</span>
+        <h1>I’m Your Name — I build neat things for the web.</h1>
+        <p class="muted">Short punchy bio goes here. What you do, what you love, what you’re looking for.</p>
+        <div style="display:flex;gap:10px;margin-top:14px">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="btn" href="mailto:you@example.com">Email me</a>
+          <a class="btn" href="resume.pdf" download>Résumé</a>
+        </div>
+        <div class="kpis" style="margin-top:14px">
+          <div class="card"><div class="tag">Experience</div><div><strong>5+ yrs</strong></div></div>
+          <div class="card"><div class="tag">Tech</div><div><strong>JS • Python • Rust</strong></div></div>
+          <div class="card"><div class="tag">Location</div><div><strong>🌎 Remote</strong></div></div>
+        </div>
+      </div>
+      <div data-animate data-delay="1" style="justify-self:end">
+        <img class="avatar" src="https://via.placeholder.com/280x280.png?text=Your+Photo" alt="Portrait of Your Name">
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="grid cols-3">
+        <article class="card" data-animate>
+          <h3 class="proj-title">Project One</h3>
+          <p class="muted">What it does, why it matters, and your role.</p>
+          <p><a href="https://github.com/yourname/project-one">GitHub →</a> · <a href="https://project-one.example.com">Live demo →</a></p>
+        </article>
+        <article class="card" data-animate data-delay="1">
+          <h3 class="proj-title">Project Two</h3>
+          <p class="muted">Tech stack, users, impact, performance bump, etc.</p>
+          <p><a href="https://github.com/yourname/project-two">GitHub →</a> · <a href="#">Case study →</a></p>
+        </article>
+        <article class="card" data-animate data-delay="2">
+          <h3 class="proj-title">Project Three</h3>
+          <p class="muted">Brief description + link(s).</p>
+          <p><a href="#">GitHub →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing">
+      <h2>Writing</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3><a href="#">How I built X in a weekend</a></h3>
+          <p class="muted">2025‑07‑12 · 6 min read</p>
+        </article>
+        <article class="card">
+          <h3><a href="#">Notes on Y</a></h3>
+          <p class="muted">2025‑05‑03 · 4 min read</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>Longer bio. Highlights, interests, past roles, fun fact. Keep it human.</p>
+        <p class="muted">Skills: HTML, CSS, JS, TypeScript, React, Node, Python, SQL, Docker.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <form action="https://formspree.io/f/yourid" method="POST">
+          <label>
+            <span class="sr-only">Your email</span>
+            <input name="email" type="email" placeholder="you@example.com" required
+              style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);margin-bottom:10px">
+          </label>
+          <label>
+            <span class="sr-only">Message</span>
+            <textarea name="message" placeholder="Say hi 👋"
+              style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);min-height:120px;margin-bottom:10px"></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
+          <p class="muted" style="margin-top:8px">Or email <a href="mailto:you@example.com">you@example.com</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="y"></span> Your Name</div>
+      <div class="muted">Find me on
+        <a href="https://github.com/yourname">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/yourname">LinkedIn</a> ·
+        <a href="https://x.com/yourname">X</a> ·
+        <a href="https://instagram.com/yourname">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year + smooth animation on load
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('[data-animate]').forEach((el,i)=>{
+      const d = el.dataset.delay || 0;
+      el.style.animationDelay = `${d*1}00ms`;
+    });
+
+    // Theme toggle with localStorage
+    const root = document.documentElement;
+    const key = 'site-theme';
+    const saved = localStorage.getItem(key);
+    if(saved) root.setAttribute('data-theme', saved);
+
+    document.getElementById('themeToggle').addEventListener('click', ()=>{
+      const cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(key, next);
+    });
+
+    // Enable smooth scroll
+    if ('scrollBehavior' in document.documentElement.style) {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }
+  </script>
+
+  <!-- Optional: simple analytics (swap in your own script later) -->
+  <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+</body>
+</html>

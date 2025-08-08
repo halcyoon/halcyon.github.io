@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+header {
+    padding: 20px;
+}
+nav a {
+    margin: 0 10px;
+    color: cyan;
+    text-decoration: none;
+}
+canvas#quantumBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
